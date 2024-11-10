@@ -5,7 +5,6 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const port = 3000;
 
 // Configuración de multer para almacenar archivos en memoria
 const storage = multer.memoryStorage();
@@ -147,10 +146,11 @@ module.exports = connection;
 
 
 // Iniciar el servidor
-app.listen(port, () => {
-    console.log(`Servidor iniciado en el puerto ${port}`);
-});
-
+app.get('/', (req, res) => {
+    res.send('¡Servidor desplegado en Vercel!');
+  });
+  
+ module.exports = app;
 
 
 
