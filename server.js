@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 // Configuración de multer para almacenar archivos en memoria
 const storage = multer.memoryStorage();
@@ -125,6 +125,26 @@ app.get('/test-db', (req, res) => {
         res.json(results);
     });
 });
+
+
+
+const connection = mysql.createConnection({
+    host: 'bcvtixp789w4ec286icw-mysql.services.clever-cloud.com', // Cambia esto si tu base de datos está en otro host
+    user: 'ui4rsi9n5kmqquxo', // Tu usuario de MySQL
+    password: 'quOVKe8FdWIyDLtc18CM', // Tu contraseña de MySQL
+    database: 'bcvtixp789w4ec286icw'  // Cambiado de 'reconocimiento' a 'reconocimiento1'
+});
+
+connection.connect((err) => {
+    if (err) {
+        console.error('Error conectando a la base de datos: ', err.stack);
+        return;
+    }
+    console.log('Conectado a la base de datos MySQL con el id: ' + connection.threadId);
+});
+
+module.exports = connection;
+
 
 // Iniciar el servidor
 app.listen(port, () => {

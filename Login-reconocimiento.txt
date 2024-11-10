@@ -18,7 +18,7 @@ CREATE TABLE `empresas` (
 )
 COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=3;
+AUTO_INCREMENT=1;
 
 CREATE TABLE `tabla_usuarios` (
 	`id` INT(20) NOT NULL AUTO_INCREMENT,
